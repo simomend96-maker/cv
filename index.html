@@ -1,0 +1,511 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --ink: #1c1c1c;
+  --ink2: #2e2e2e;
+  --bg: #f9f8f5;
+  --green: #4a7c59;
+  --green-light: #d8ead e;
+  --green-pale: #eef4f0;
+  --gold: #c8a95a;
+  --gold-pale: #faf3e4;
+  --mid: #888;
+  --border: rgba(0,0,0,0.09);
+  --sans: 'Montserrat', system-ui, sans-serif;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.07);
+  --shadow-md: 0 6px 20px rgba(0,0,0,0.11);
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+
+.cv{font-family:var(--sans);color:var(--color-text-primary);max-width:700px;padding-bottom:3rem;}
+
+/* lang */
+.lang-bar{display:flex;justify-content:flex-end;gap:6px;padding:.75rem 0 1.25rem;}
+.lb{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;border-radius:20px;border:1.5px solid var(--border);background:transparent;color:var(--mid);cursor:pointer;transition:all .2s;}
+.lb:hover{border-color:var(--green);color:var(--green);}
+.lb.on{background:var(--green);color:#fff;border-color:var(--green);}
+
+/* hero */
+.hero{background:var(--ink);border-radius:20px;padding:2.25rem 2.25rem 2rem;margin-bottom:1.25rem;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;width:300px;height:300px;border-radius:50%;background:var(--green);opacity:.07;top:-80px;right:-80px;pointer-events:none;}
+.hero::after{content:'';position:absolute;width:120px;height:120px;border-radius:50%;background:var(--gold);opacity:.09;bottom:-40px;right:120px;pointer-events:none;}
+.hero-eyebrow{font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--green);margin-bottom:1rem;opacity:.9;}
+.hero-name{font-size:64px;font-weight:900;line-height:.92;color:#fff;letter-spacing:-.02em;text-transform:uppercase;}
+.hero-name span{display:block;color:rgba(255,255,255,.22);}
+.hero-sub{font-size:13px;font-weight:500;color:rgba(255,255,255,.5);margin-top:1.1rem;letter-spacing:.04em;text-transform:uppercase;}
+.hero-bio{font-size:13.5px;font-weight:400;color:rgba(255,255,255,.6);margin-top:.6rem;max-width:420px;line-height:1.65;}
+.hero-bio strong{color:rgba(255,255,255,.9);font-weight:600;}
+.hero-contacts{margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:7px;}
+.hc{font-size:11px;font-weight:500;background:rgba(255,255,255,.07);color:rgba(255,255,255,.65);padding:5px 13px;border-radius:20px;text-decoration:none;border:1px solid rgba(255,255,255,.1);transition:all .2s;}
+.hc:hover{background:rgba(255,255,255,.13);color:#fff;}
+
+/* tabs */
+.tabs-bar{display:flex;gap:4px;margin-bottom:1.5rem;background:var(--color-background-secondary);border-radius:14px;padding:4px;}
+.tab{flex:1;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:9px 4px;border-radius:10px;border:none;background:transparent;color:var(--mid);cursor:pointer;transition:all .2s;text-align:center;}
+.tab:hover{color:var(--ink);}
+.tab.on{background:var(--color-background-primary);color:var(--green);box-shadow:var(--shadow-sm);}
+.panel{display:none;}.panel.on{display:block;}
+
+/* section heads */
+.sh{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;margin-top:1.75rem;}
+.sh:first-child{margin-top:0;}
+.sh-label{font-size:9px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--green);white-space:nowrap;}
+.sh-line{flex:1;height:1px;background:var(--border);}
+
+/* exp */
+.exp-row{display:grid;grid-template-columns:68px 1fr;gap:0 1.1rem;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);}
+.exp-row:last-child{border-bottom:none;margin-bottom:0;}
+.exp-yr{font-size:10px;font-weight:700;color:var(--mid);padding-top:3px;letter-spacing:.04em;}
+.exp-role{font-size:15px;font-weight:800;color:var(--color-text-primary);line-height:1.2;letter-spacing:-.01em;}
+.exp-co{font-size:11px;color:var(--green);font-weight:700;margin:4px 0 9px;letter-spacing:.02em;text-transform:uppercase;}
+.exp-li{list-style:none;}
+.exp-li li{font-size:12.5px;color:var(--color-text-secondary);line-height:1.6;padding-left:14px;position:relative;margin-bottom:3px;font-weight:400;}
+.exp-li li::before{content:'·';position:absolute;left:0;color:var(--green);font-size:16px;top:-1px;font-weight:900;}
+
+/* side badge */
+.side-badge{display:inline-flex;align-items:center;gap:4px;background:var(--gold-pale);color:var(--gold);border:1px solid rgba(200,169,90,.25);font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-bottom:7px;}
+
+/* cards (portfolio) */
+.port-grid{display:grid;gap:1rem;}
+.port-card{border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:box-shadow .22s, transform .22s;cursor:default;background:var(--color-background-primary);}
+.port-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);}
+.port-head{padding:1.1rem 1.25rem .75rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;}
+.port-num{font-size:44px;font-weight:900;line-height:1;color:var(--green);opacity:.15;flex-shrink:0;letter-spacing:-.02em;}
+.port-title{font-size:14px;font-weight:800;color:var(--color-text-primary);line-height:1.25;letter-spacing:-.01em;}
+.port-sub{font-size:12px;color:var(--mid);margin-top:5px;line-height:1.55;font-weight:400;}
+.port-tags{display:flex;flex-wrap:wrap;gap:5px;padding:0 1.25rem .9rem;}
+.pt{font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:20px;}
+.pt-green{background:var(--green-pale);color:var(--green);}
+.pt-gold{background:var(--gold-pale);color:#9a7830;}
+.pt-ink{background:rgba(28,28,28,.06);color:var(--ink2);}
+.pt-ph{background:var(--color-background-secondary);color:var(--mid);font-style:italic;}
+.port-body{padding:0 1.25rem 1.25rem;border-top:1px solid var(--border);}
+
+/* flow */
+.flow-step-wrap{display:flex;align-items:center;overflow-x:auto;padding-bottom:4px;margin-top:1rem;gap:0;}
+.flow-step{flex-shrink:0;min-width:76px;}
+.flow-box{background:var(--color-background-secondary);border:1px solid var(--border);border-radius:8px;padding:7px 5px;font-size:9px;font-weight:700;color:var(--mid);line-height:1.3;text-transform:uppercase;letter-spacing:.04em;text-align:center;transition:background .2s;}
+.flow-box.active{background:var(--green-pale);border-color:var(--green);color:var(--green);}
+.flow-box.done{background:var(--gold-pale);border-color:rgba(200,169,90,.4);color:#9a7830;}
+.flow-arrow{display:flex;align-items:center;justify-content:center;width:16px;font-size:11px;color:var(--mid);flex-shrink:0;align-self:center;}
+.metrics-row{display:flex;gap:8px;margin-top:10px;}
+.metric-box{flex:1;background:var(--color-background-secondary);border-radius:10px;padding:9px 8px;text-align:center;border:1px solid var(--border);}
+.metric-val{font-size:20px;font-weight:900;color:var(--green);line-height:1;letter-spacing:-.02em;}
+.metric-label{font-size:9px;color:var(--mid);margin-top:3px;line-height:1.3;font-weight:500;}
+
+.ph-box{margin-top:10px;background:var(--color-background-secondary);border:1.5px dashed var(--border);border-radius:10px;padding:1.25rem;text-align:center;}
+.ph-label{font-size:11px;font-weight:700;color:var(--mid);}
+.ph-note{font-size:10px;color:var(--mid);margin-top:3px;opacity:.7;}
+
+.art-link{background:var(--color-background-secondary);border-radius:9px;padding:9px 11px;display:flex;align-items:center;justify-content:space-between;text-decoration:none;gap:8px;margin-top:7px;border:1px solid var(--border);transition:all .2s;}
+.art-link:hover{background:var(--green-pale);border-color:var(--green);}
+.art-link-text{font-size:12px;font-weight:600;color:var(--color-text-primary);line-height:1.3;}
+.art-link-sub{font-size:10px;color:var(--mid);font-weight:400;}
+.art-arrow{color:var(--green);font-size:13px;flex-shrink:0;font-weight:700;}
+
+.impact-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px;}
+.impact-box{background:var(--color-background-secondary);border-radius:10px;padding:10px 8px;text-align:center;border:1px solid var(--border);}
+.impact-val{font-size:20px;font-weight:900;color:var(--green);line-height:1;}
+.impact-label{font-size:9px;color:var(--mid);margin-top:3px;line-height:1.3;font-weight:500;}
+.partner-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px;}
+.partner-tag{font-size:10px;font-weight:700;background:var(--green-pale);color:var(--green);padding:3px 10px;border-radius:20px;letter-spacing:.03em;}
+
+/* edu */
+.edu-row{display:grid;grid-template-columns:68px 1fr;gap:0 1.1rem;margin-bottom:1.25rem;}
+.edu-yr{font-size:10px;font-weight:700;color:var(--mid);padding-top:2px;}
+.edu-deg{font-size:13.5px;font-weight:800;color:var(--color-text-primary);line-height:1.25;letter-spacing:-.01em;}
+.edu-sch{font-size:11px;color:var(--mid);margin-top:2px;font-weight:400;}
+.edu-note{font-size:11px;color:var(--mid);font-style:italic;margin-top:3px;font-weight:400;}
+
+/* skills */
+.skills-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.sk-head{font-size:9px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--green);margin-bottom:10px;}
+.sk-tag{display:block;font-size:11.5px;color:var(--color-text-secondary);padding:5px 0;border-bottom:1px solid var(--border);line-height:1.4;font-weight:400;}
+.sk-tag:last-child{border-bottom:none;}
+.tools-wrap{display:flex;flex-wrap:wrap;gap:6px;margin-top:1rem;}
+.tool-pill{font-size:10px;font-weight:600;background:var(--color-background-secondary);border:1px solid var(--border);color:var(--mid);padding:4px 11px;border-radius:20px;transition:all .2s;letter-spacing:.02em;}
+.tool-pill:hover{background:var(--green-pale);border-color:var(--green);color:var(--green);}
+
+[data-l="en"]{display:none;}
+.le [data-l="en"]{display:block;}
+.le [data-l="it"]{display:none;}
+[data-li="en"]{display:none;}
+.le [data-li="en"]{display:inline;}
+.le [data-li="it"]{display:none;}
+</style>
+
+<div class="cv" id="cv">
+  <div class="lang-bar">
+    <button class="lb on" onclick="setLang('it')">🇮🇹 IT</button>
+    <button class="lb" onclick="setLang('en')">🇬🇧 EN</button>
+  </div>
+
+  <div class="hero">
+    <div class="hero-eyebrow">Marketing Specialist · Customer Experience · Brand</div>
+    <div class="hero-name">
+      Simona
+      <span>Menditto</span>
+    </div>
+    <div class="hero-sub" data-l="it">Customer Marketing · Funnel Design · Brand Strategy</div>
+    <div class="hero-sub" data-l="en">Customer Marketing · Funnel Design · Brand Strategy</div>
+    <div class="hero-bio" data-l="it">Lavoro all'incrocio tra <strong>dati e sensibilità estetica</strong>: ottimizzo funnel, progetto experience e costruisco strategie che convertono. Il mio sogno? Una campagna che faccia pensare: <strong>"Avrei voluto pensarci io."</strong></div>
+    <div class="hero-bio" data-l="en">I work at the intersection of <strong>data and aesthetic sensibility</strong>: I optimize funnels, design experiences, and build strategies that convert. My dream? A campaign that makes people think: <strong>"I wish I'd come up with that."</strong></div>
+    <div class="hero-contacts">
+      <a class="hc" href="mailto:simomend96@gmail.com">simomend96@gmail.com</a>
+      <span class="hc">+39 328 303 6828</span>
+      <span class="hc">Roma (RM)</span>
+      <a class="hc" href="https://www.linkedin.com/in/simona-menditto/" target="_blank">LinkedIn ↗</a>
+      <a class="hc" href="https://simonamenditto.my.canva.site/" target="_blank">Portfolio ↗</a>
+    </div>
+  </div>
+
+  <div class="tabs-bar">
+    <button class="tab on" onclick="showTab('exp',this)"><span data-l="it">Esperienza</span><span data-l="en">Experience</span></button>
+    <button class="tab" onclick="showTab('side',this)">Side Projects</button>
+    <button class="tab" onclick="showTab('port',this)">Portfolio</button>
+    <button class="tab" onclick="showTab('edu',this)"><span data-l="it">Formazione</span><span data-l="en">Education</span></button>
+    <button class="tab" onclick="showTab('skills',this)">Skills</button>
+  </div>
+
+  <!-- ESPERIENZA -->
+  <div class="panel on" id="panel-exp">
+    <div class="sh"><span class="sh-label" data-l="it">In corso</span><span class="sh-label" data-l="en">Current</span><div class="sh-line"></div></div>
+    <div class="exp-row">
+      <div class="exp-yr">2024 →</div>
+      <div>
+        <div class="exp-role">Customer Marketing Specialist</div>
+        <div class="exp-co">Docplanner Italy · MioDottore · Roma</div>
+        <ul class="exp-li">
+          <li data-l="it">Strategie di customer marketing orientate a conversione, retention e upselling con focus sull'esperienza post-vendita e ottimizzazione dei funnel</li>
+          <li data-l="en">Customer marketing strategies focused on conversion, retention, and upselling, with emphasis on post-sale experience and funnel optimization</li>
+          <li data-l="it">Gestione workflow HubSpot per campagne marketing e operations (deal assignment, aggiornamento database)</li>
+          <li data-l="en">Managing HubSpot workflows for marketing campaigns and operations (deal assignment, database updates)</li>
+          <li data-l="it">Segmentazione liste, analisi tassi di conversione e monitoraggio performance</li>
+          <li data-l="en">List segmentation and management, conversion rate analysis, and performance monitoring</li>
+          <li data-l="it">Progettazione flussi email per onboarding, retention, cross-sell e completamento KYC</li>
+          <li data-l="en">Designing email journeys for onboarding, retention, cross-sell, and KYC completion</li>
+          <li data-l="it">Analisi integrazione HubSpot–Salesforce e tracciamento risultati con il team operations</li>
+          <li data-l="en">HubSpot–Salesforce integration analysis and result tracking with the operations team</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sh"><span class="sh-label" data-l="it">Precedente</span><span class="sh-label" data-l="en">Previous</span><div class="sh-line"></div></div>
+    <div class="exp-row">
+      <div class="exp-yr">2021–2024</div>
+      <div>
+        <div class="exp-role">Marketing Specialist & Project Manager</div>
+        <div class="exp-co">Seedble · Consulenza Manageriale · Roma</div>
+        <ul class="exp-li">
+          <li data-l="it">Gestione progetti cliente e coordinamento team cross-funzionale (IT, graphic design, copywriter)</li>
+          <li data-l="en">Project management for client initiatives and coordination of cross-functional teams (IT, design, copy)</li>
+          <li data-l="it">Strategia di comunicazione e vendita; costruzione CX e UX per prodotti e servizi</li>
+          <li data-l="en">Communication and sales strategy; building CX and UX for products and services</li>
+          <li data-l="it">Campagne DEM, automazioni, landing page e lead magnet per lead generation; gestione database</li>
+          <li data-l="en">DEM campaigns, automations, landing pages, and lead magnets for lead generation; database management</li>
+          <li data-l="it">Contributo alla realizzazione di NINO (Google.org Impact Challenge): piano marketing e UX, affiancamento alla UI designer</li>
+          <li data-l="en">Contributed to NINO (Google.org Impact Challenge): marketing plan and UX alongside the UI designer</li>
+          <li data-l="it">Analisi PEST, competitor, SWOT; formazione e mentoring su CX e UX/UI</li>
+          <li data-l="en">PEST, competitor, and SWOT analyses; training and mentoring on CX and UX/UI</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-row">
+      <div class="exp-yr">2022</div>
+      <div>
+        <div class="exp-role">Contributor & Social Media Manager</div>
+        <div class="exp-co">Spremute Digitali Magazine · Roma</div>
+        <ul class="exp-li">
+          <li data-l="it">Piano editoriale social con grafiche e copy; articoli di settore su marketing, branding e innovazione digitale</li>
+          <li data-l="en">Social media editorial planning with graphics and copy; articles on marketing, branding, and digital innovation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIDE PROJECTS -->
+  <div class="panel" id="panel-side">
+    <div class="sh" style="margin-top:0"><span class="sh-label" data-l="it">Progetto imprenditoriale</span><span class="sh-label" data-l="en">Entrepreneurial project</span><div class="sh-line"></div></div>
+    <div class="exp-row">
+      <div class="exp-yr">2023 →</div>
+      <div>
+        <div class="side-badge">★ In corso</div>
+        <div class="exp-role">Edicola RiVista</div>
+        <div class="exp-co" data-l="it">Co-fondatrice & Brand Curator · Roma</div>
+        <div class="exp-co" data-l="en">Co-founder & Brand Curator · Rome</div>
+        <ul class="exp-li">
+          <li data-l="it">Ideazione e storytelling: trasformazione di un'edicola in spazio culturale contemporaneo con riviste indipendenti, eventi e book crossing</li>
+          <li data-l="en">Project ideation and storytelling: transforming a kiosk into a contemporary cultural space with independent magazines, events, and book crossing</li>
+          <li data-l="it">Briefing all'agenzia per brand identity completa: naming (Edicola RiVista), visual identity e posizionamento</li>
+          <li data-l="en">Agency briefing for full brand identity: naming (Edicola RiVista), visual identity, and positioning</li>
+          <li data-l="it">Sviluppo piano marketing e strategia di crowdfunding</li>
+          <li data-l="en">Marketing plan development and crowdfunding strategy</li>
+          <li data-l="it">Social media management: content strategy, piano editoriale, community building</li>
+          <li data-l="en">Social media management: content strategy, editorial planning, community building</li>
+          <li data-l="it">PR editoriale: selezione e contatto di riviste indipendenti per distribuzione e vendita</li>
+          <li data-l="en">Editorial PR: sourcing and contacting independent magazines for distribution and sales</li>
+          <li data-l="it">Curation prodotti e merchandise; organizzazione eventi culturali</li>
+          <li data-l="en">Product and merchandise curation; cultural event organization</li>
+        </ul>
+        <a class="art-link" href="https://www.instagram.com/edicolarivista/" target="_blank" style="margin-top:12px;">
+          <div><div class="art-link-text">@edicolarivista</div><div class="art-link-sub">Instagram</div></div>
+          <div class="art-arrow">↗</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PORTFOLIO -->
+  <div class="panel" id="panel-port">
+    <div class="port-grid">
+
+      <div class="port-card">
+        <div class="port-head">
+          <div>
+            <div class="port-title" data-l="it">Edicola RiVista — Brand & Strategia end-to-end</div>
+            <div class="port-title" data-l="en">Edicola RiVista — End-to-end Brand & Strategy</div>
+            <div class="port-sub" data-l="it">Da zero a brand: brief agenzia, identità visiva, piano marketing, social strategy e PR editoriale.</div>
+            <div class="port-sub" data-l="en">From zero to brand: agency brief, visual identity, marketing plan, social strategy, and editorial PR.</div>
+          </div>
+          <div class="port-num">01</div>
+        </div>
+        <div class="port-tags">
+          <span class="pt pt-green">Brand Identity</span>
+          <span class="pt pt-gold">Marketing Plan</span>
+          <span class="pt pt-ink">Social Strategy</span>
+          <span class="pt pt-green">Editorial PR</span>
+        </div>
+        <div class="port-body">
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:1rem;">
+            <div class="ph-box" style="margin:0;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px;">
+              <div class="ph-label" data-l="it">Brand identity → aggiungi</div>
+              <div class="ph-label" data-l="en">Brand identity → add</div>
+            </div>
+            <div class="ph-box" style="margin:0;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px;">
+              <div class="ph-label" data-l="it">Post social → aggiungi</div>
+              <div class="ph-label" data-l="en">Social post → add</div>
+            </div>
+            <div class="ph-box" style="margin:0;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px;">
+              <div class="ph-label" data-l="it">Piano mktg → aggiungi</div>
+              <div class="ph-label" data-l="en">Mktg plan → add</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="port-card">
+        <div class="port-head">
+          <div>
+            <div class="port-title">DP Payments — Email Flow & KYC</div>
+            <div class="port-sub" data-l="it">Funnel email per spingere il prodotto Payments e accompagnare l'utente nel completamento del KYC. Progettato su Miro, implementato in HubSpot.</div>
+            <div class="port-sub" data-l="en">Email funnel to drive the Payments product and guide users through KYC completion. Designed in Miro, implemented in HubSpot.</div>
+          </div>
+          <div class="port-num">02</div>
+        </div>
+        <div class="port-tags">
+          <span class="pt pt-green">Email Marketing</span>
+          <span class="pt pt-ink">HubSpot</span>
+          <span class="pt pt-gold">Funnel Design</span>
+          <span class="pt pt-green">KYC / Onboarding</span>
+        </div>
+        <div class="port-body">
+          <div style="font-size:9px;font-weight:800;color:var(--mid);text-transform:uppercase;letter-spacing:.12em;margin:1rem 0 6px;" data-l="it">Struttura del flow</div>
+          <div style="font-size:9px;font-weight:800;color:var(--mid);text-transform:uppercase;letter-spacing:.12em;margin:1rem 0 6px;" data-l="en">Flow structure</div>
+          <div class="flow-step-wrap">
+            <div class="flow-step"><div class="flow-box done" data-l="it">Awareness<br>Payments</div><div class="flow-box done" data-l="en">Payments<br>Awareness</div></div>
+            <div class="flow-arrow">›</div>
+            <div class="flow-step"><div class="flow-box active" data-l="it">Attivazione<br>Feature</div><div class="flow-box active" data-l="en">Feature<br>Activation</div></div>
+            <div class="flow-arrow">›</div>
+            <div class="flow-step"><div class="flow-box" data-l="it">Nudge<br>KYC 1</div><div class="flow-box" data-l="en">KYC<br>Nudge 1</div></div>
+            <div class="flow-arrow">›</div>
+            <div class="flow-step"><div class="flow-box" data-l="it">Reminder<br>KYC 2</div><div class="flow-box" data-l="en">KYC<br>Reminder 2</div></div>
+            <div class="flow-arrow">›</div>
+            <div class="flow-step"><div class="flow-box" data-l="it">Conferma<br>Attivata</div><div class="flow-box" data-l="en">Activation<br>Confirmed</div></div>
+          </div>
+          <div class="metrics-row">
+            <div class="metric-box"><div class="metric-val">—</div><div class="metric-label" data-l="it">Open rate → aggiungi</div><div class="metric-label" data-l="en">Open rate → add</div></div>
+            <div class="metric-box"><div class="metric-val">—</div><div class="metric-label">CTR → <span data-l="it">aggiungi</span><span data-l="en">add</span></div></div>
+            <div class="metric-box"><div class="metric-val">—</div><div class="metric-label" data-l="it">KYC completion → aggiungi</div><div class="metric-label" data-l="en">KYC completion → add</div></div>
+          </div>
+          <div class="ph-box">
+            <div class="ph-label" data-l="it">Screen Miro + HubSpot workflow → da inserire</div>
+            <div class="ph-label" data-l="en">Miro + HubSpot workflow screenshots → to be added</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="port-card">
+        <div class="port-head">
+          <div>
+            <div class="port-title" data-l="it">NINO — App per l'alfabetizzazione digitale</div>
+            <div class="port-title" data-l="en">NINO — Digital Literacy App</div>
+            <div class="port-sub" data-l="it">App di apprendimento digitale per adulti 50+, nata dalla Google.org Impact Challenge. Piano marketing, strategia di lancio e UX in affiancamento alla UI designer.</div>
+            <div class="port-sub" data-l="en">Digital learning app for adults 50+, born from the Google.org Impact Challenge. Marketing plan, launch strategy, and UX alongside the UI designer.</div>
+          </div>
+          <div class="port-num">03</div>
+        </div>
+        <div class="port-tags">
+          <span class="pt pt-gold">Social Impact</span>
+          <span class="pt pt-green">UX Strategy</span>
+          <span class="pt pt-ink">Marketing Plan</span>
+          <span class="pt pt-green">Google.org</span>
+        </div>
+        <div class="port-body">
+          <div class="impact-row">
+            <div class="impact-box"><div class="impact-val">50+</div><div class="impact-label" data-l="it">Target adulti<br>nel digitale</div><div class="impact-label" data-l="en">Adults going<br>digital</div></div>
+            <div class="impact-box"><div class="impact-val">4</div><div class="impact-label" data-l="it">Partner di<br>progetto</div><div class="impact-label" data-l="en">Project<br>partners</div></div>
+            <div class="impact-box"><div class="impact-val">↗</div><div class="impact-label">App live<br>mynino.it</div></div>
+          </div>
+          <div class="partner-row">
+            <span class="partner-tag">Seedble</span>
+            <span class="partner-tag">Biblioteche Senza Frontiere</span>
+            <span class="partner-tag">Dataninja</span>
+            <span class="partner-tag">Link Campus</span>
+          </div>
+          <a class="art-link" href="https://mynino.it/" target="_blank" style="margin-top:10px;">
+            <div><div class="art-link-text">mynino.it</div><div class="art-link-sub" data-l="it">Sito ufficiale del progetto</div><div class="art-link-sub" data-l="en">Official project website</div></div>
+            <div class="art-arrow">↗</div>
+          </a>
+          <div class="ph-box">
+            <div class="ph-label" data-l="it">Screen app / materiali → da inserire</div>
+            <div class="ph-label" data-l="en">App screenshots / materials → to be added</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="port-card">
+        <div class="port-head">
+          <div>
+            <div class="port-title" data-l="it">Scrittura di settore — Rebranding & Brand Strategy</div>
+            <div class="port-title" data-l="en">Industry Writing — Rebranding & Brand Strategy</div>
+            <div class="port-sub" data-l="it">Articoli pubblicati su Spremute Digitali: analisi di casi reali, strategie di brand, diversity & inclusion.</div>
+            <div class="port-sub" data-l="en">Published articles on Spremute Digitali: real case studies, brand strategy, diversity & inclusion.</div>
+          </div>
+          <div class="port-num">04</div>
+        </div>
+        <div class="port-tags">
+          <span class="pt pt-green">Brand Strategy</span>
+          <span class="pt pt-gold">Rebranding</span>
+          <span class="pt pt-ink">Editorial</span>
+        </div>
+        <div class="port-body">
+          <a class="art-link" href="https://spremutedigitali.com/tipologie-di-rebranding/" target="_blank">
+            <div><div class="art-link-text" data-l="it">Tipologie di Rebranding: quante ne conosci?</div><div class="art-link-text" data-l="en">Types of Rebranding: how many do you know?</div><div class="art-link-sub">Spremute Digitali · 2022</div></div>
+            <div class="art-arrow">↗</div>
+          </a>
+          <a class="art-link" href="https://spremutedigitali.com/migliori-e-peggiori-rebranding/" target="_blank">
+            <div><div class="art-link-text" data-l="it">I migliori e peggiori rebranding della storia</div><div class="art-link-text" data-l="en">The best and worst rebranding in history</div><div class="art-link-sub">Spremute Digitali · 2022</div></div>
+            <div class="art-arrow">↗</div>
+          </a>
+          <a class="art-link" href="https://spremutedigitali.com/diversity-inclusion-aziende/" target="_blank">
+            <div><div class="art-link-text" data-l="it">Diversity & Inclusion nelle aziende</div><div class="art-link-text" data-l="en">Diversity & Inclusion in companies</div><div class="art-link-sub">Spremute Digitali · 2022</div></div>
+            <div class="art-arrow">↗</div>
+          </a>
+          <a class="art-link" href="https://spremutedigitali.com/come-scegliere-nome-brand/" target="_blank">
+            <div><div class="art-link-text" data-l="it">Come scegliere il nome del brand</div><div class="art-link-text" data-l="en">How to choose a brand name</div><div class="art-link-sub">Spremute Digitali · 2022</div></div>
+            <div class="art-arrow">↗</div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FORMAZIONE -->
+  <div class="panel" id="panel-edu">
+    <div class="edu-row" style="margin-top:.25rem">
+      <div class="edu-yr">2021</div>
+      <div>
+        <div class="edu-deg">Master in Brand Management</div>
+        <div class="edu-sch">IED European Design Institute · Roma</div>
+        <div class="edu-note" data-l="it">Tesi: campagna integrata di riposizionamento "Reimagine Jaguar"</div>
+        <div class="edu-note" data-l="en">Thesis: integrated repositioning campaign "Reimagine Jaguar"</div>
+      </div>
+    </div>
+    <div class="edu-row">
+      <div class="edu-yr">2020–2022</div>
+      <div>
+        <div class="edu-deg" data-l="it">Laurea Magistrale in Marketing Management</div>
+        <div class="edu-deg" data-l="en">Master's Degree in Marketing Management</div>
+        <div class="edu-sch">Università Luigi Vanvitelli</div>
+        <div class="edu-note" data-l="it">IV classificata Premio Marketing SIM · Tesi: brand values e identità nel settore cosmetica</div>
+        <div class="edu-note" data-l="en">4th place SIM University Marketing Award · Thesis: brand values and identity in cosmetics</div>
+      </div>
+    </div>
+    <div class="edu-row">
+      <div class="edu-yr">2016–2019</div>
+      <div>
+        <div class="edu-deg" data-l="it">Laurea Triennale in Economia Aziendale</div>
+        <div class="edu-deg" data-l="en">Bachelor's Degree in Business Administration</div>
+        <div class="edu-sch">II Università degli Studi di Napoli</div>
+        <div class="edu-note" data-l="it">Tesi: social network e formazione del consenso nelle elezioni europee</div>
+        <div class="edu-note" data-l="en">Thesis: social networks and consensus formation in the European elections</div>
+      </div>
+    </div>
+    <div class="edu-row">
+      <div class="edu-yr">2021</div>
+      <div>
+        <div class="edu-deg">Innovators Factory II Ed.</div>
+        <div class="edu-sch">Seedble · Roma</div>
+        <div class="edu-note" data-l="it">Open innovation, innovazione organizzativa, digital transformation</div>
+        <div class="edu-note" data-l="en">Open innovation, organizational innovation, digital transformation</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="panel" id="panel-skills">
+    <div class="skills-3" style="margin-top:.25rem">
+      <div>
+        <div class="sk-head">Hard</div>
+        <span class="sk-tag" data-l="it">Marketing automation (HubSpot)</span><span class="sk-tag" data-l="en">Marketing automation (HubSpot)</span>
+        <span class="sk-tag" data-l="it">Email marketing & funnel design</span><span class="sk-tag" data-l="en">Email marketing & funnel design</span>
+        <span class="sk-tag" data-l="it">Performance & conversion rate analysis</span><span class="sk-tag" data-l="en">Performance & conversion rate analysis</span>
+        <span class="sk-tag" data-l="it">Segmentazione & CRM strategy</span><span class="sk-tag" data-l="en">Segmentation & CRM strategy</span>
+        <span class="sk-tag" data-l="it">UX strategy & customer journey</span><span class="sk-tag" data-l="en">UX strategy & customer journey</span>
+      </div>
+      <div>
+        <div class="sk-head">Soft</div>
+        <span class="sk-tag" data-l="it">Project management</span><span class="sk-tag" data-l="en">Project management</span>
+        <span class="sk-tag" data-l="it">Pensiero analitico & data-driven</span><span class="sk-tag" data-l="en">Analytical thinking & data-driven</span>
+        <span class="sk-tag" data-l="it">Comunicazione strategica</span><span class="sk-tag" data-l="en">Strategic communication</span>
+        <span class="sk-tag" data-l="it">Mentoring & formazione</span><span class="sk-tag" data-l="en">Mentoring & training</span>
+        <span class="sk-tag" data-l="it">Coordinamento cross-funzionale</span><span class="sk-tag" data-l="en">Cross-functional coordination</span>
+      </div>
+      <div>
+        <div class="sk-head">Plus</div>
+        <span class="sk-tag" data-l="it">Brand curation & visual sensibility</span><span class="sk-tag" data-l="en">Brand curation & visual sensibility</span>
+        <span class="sk-tag" data-l="it">Ideazione creativa & storytelling</span><span class="sk-tag" data-l="en">Creative ideation & storytelling</span>
+        <span class="sk-tag" data-l="it">PR editoriale & media relations</span><span class="sk-tag" data-l="en">Editorial PR & media relations</span>
+        <span class="sk-tag" data-l="it">Event management & curation</span><span class="sk-tag" data-l="en">Event management & curation</span>
+      </div>
+    </div>
+    <div class="sh" style="margin-top:1.5rem"><span class="sh-label">Tools</span><div class="sh-line"></div></div>
+    <div class="tools-wrap">
+      <span class="tool-pill">HubSpot</span><span class="tool-pill">Salesforce</span><span class="tool-pill">Mailchimp</span>
+      <span class="tool-pill">Meta Ads</span><span class="tool-pill">Google Suite</span><span class="tool-pill">Miro</span>
+      <span class="tool-pill">Canva</span><span class="tool-pill">Figma</span><span class="tool-pill">Asana</span>
+      <span class="tool-pill">Notion</span><span class="tool-pill">Elementor</span><span class="tool-pill">MS Office</span>
+    </div>
+  </div>
+</div>
+
+<script>
+function showTab(id,el){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.getElementById('panel-'+id).classList.add('on');
+  el.classList.add('on');
+}
+function setLang(lang){
+  const cv=document.getElementById('cv');
+  lang==='en'?cv.classList.add('le'):cv.classList.remove('le');
+  document.querySelectorAll('.lb').forEach(b=>b.classList.remove('on'));
+  document.querySelector(`.lb[onclick="setLang('${lang}')"]`).classList.add('on');
+}
+</script>
