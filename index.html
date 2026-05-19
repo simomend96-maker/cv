@@ -4,27 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Simona Menditto</title>
-<link href="https://fonts.googleapis.com/css2?family=Asap:wdth,wght@125,400;125,600;125,700;125,800;125,900&family=Mulish:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Asap:wdth,wght@125,400;125,600;125,700;125,800;125,900&family=Montserrat:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
   --ink:#1a1a1a;
   --body:#2a2a2a;
-  --pink:#EF43BE;
+  --pink:#ED33B9;
   --pink-light:#fde8f8;
   --pink-mid:#f5c0ee;
   --lime:#7ac231;
   --lime-light:#edf7d8;
   --lilla:#8b7ec8;
   --lilla-light:#ece9f8;
-  --yellow:#10005;
-  --yellow-light:#F2F79E  ;
+  --yellow:#f0d84a;
+  --yellow-light:#fef9d0;
   --cream:#faf8f3;
   --white:#ffffff;
   --border:rgba(0,0,0,0.07);
   --asap:'Asap',sans-serif;
   --muli:'Montserrat',sans-serif;
-  --tight:'Montserrat',sans-serif;
+  --tight:'Inter Tight',sans-serif;
 }
 
 /* Asap variable font - width 125 (extended) */
@@ -155,6 +155,23 @@ body{font-family:var(--muli);background:var(--cream);color:var(--body);-webkit-f
 .tool-pill{font-family:var(--tight);font-size:10px;font-weight:700;background:var(--white);border:1.5px solid var(--border);color:#666;padding:5px 12px;border-radius:20px;transition:all .2s;}
 .tool-pill:hover{background:var(--lime-light);border-color:var(--lime);color:#4a8000;transform:translateY(-1px);}
 
+
+/* ABOUT ME */
+.about-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:.25rem;}
+.about-card{background:var(--white);border:1.5px solid var(--border);border-radius:20px;padding:1.5rem 1.25rem;display:flex;flex-direction:column;align-items:flex-start;gap:.75rem;transition:box-shadow .25s,transform .25s;}
+.about-card:hover{box-shadow:0 8px 28px rgba(237,51,185,.12);transform:translateY(-2px);}
+.about-emoji{font-size:36px;line-height:1;}
+.about-label{font-family:var(--asap);font-size:13px;font-weight:800;color:var(--ink);text-transform:uppercase;letter-spacing:.02em;font-variation-settings:"wdth" 125;}
+.about-desc{font-family:var(--muli);font-size:12.5px;color:#555;line-height:1.6;font-weight:500;}
+.about-tag{display:inline-block;font-family:var(--tight);font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-top:4px;}
+.about-cat-card{grid-column:1/-1;background:var(--pink-light);border:1.5px solid var(--pink-mid);border-radius:20px;padding:1.5rem 1.25rem;display:flex;align-items:center;gap:1.25rem;transition:box-shadow .25s,transform .25s;}
+.about-cat-card:hover{box-shadow:0 8px 28px rgba(237,51,185,.15);transform:translateY(-2px);}
+.about-cat-emoji{font-size:52px;line-height:1;flex-shrink:0;}
+.about-cat-text{}
+.about-cat-name{font-family:var(--asap);font-size:18px;font-weight:900;color:var(--pink);text-transform:uppercase;letter-spacing:.02em;font-variation-settings:"wdth" 125;}
+.about-cat-desc{font-family:var(--muli);font-size:12.5px;color:#555;line-height:1.6;font-weight:500;margin-top:4px;}
+@media(max-width:520px){.about-grid{grid-template-columns:1fr;}.about-cat-card{grid-column:1;}}
+
 /* LIGHTBOX */
 .lb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:999;align-items:center;justify-content:center;padding:20px;}
 .lb-overlay.open{display:flex;}
@@ -227,6 +244,7 @@ body{font-family:var(--muli);background:var(--cream);color:var(--body);-webkit-f
   <button class="tab" onclick="showTab('graphic',this)">Graphic</button>
   <button class="tab" onclick="showTab('edu',this)"><span data-l="it">Formazione</span><span data-l="en">Education</span></button>
   <button class="tab" onclick="showTab('skills',this)">Skills</button>
+  <button class="tab" onclick="showTab('about',this)">About me</button>
 </div>
 
 <!-- ESPERIENZA -->
@@ -501,6 +519,59 @@ body{font-family:var(--muli);background:var(--cream);color:var(--body);-webkit-f
     <span class="tool-pill">Meta Ads</span><span class="tool-pill">Google Suite</span><span class="tool-pill">Miro</span>
     <span class="tool-pill">Canva</span><span class="tool-pill">Figma</span><span class="tool-pill">Asana</span>
     <span class="tool-pill">Notion</span><span class="tool-pill">Elementor</span><span class="tool-pill">MS Office</span>
+  </div>
+</div>
+
+
+<!-- ABOUT ME -->
+<div class="panel" id="panel-about">
+  <div class="about-grid">
+
+    <div class="about-card">
+      <div class="about-emoji">🧘🏼‍♀️</div>
+      <div class="about-label" data-l="it">Yoga</div>
+      <div class="about-label" data-l="en">Yoga</div>
+      <div class="about-desc" data-l="it">Una pratica quotidiana che bilancia l'energia geminiana. Movimento, respiro e presenza — tutto quello che serve per tornare a concentrarsi dopo mille progetti aperti.</div>
+      <div class="about-desc" data-l="en">A daily practice that balances Gemini energy. Movement, breath, and presence — everything needed to refocus after a thousand open projects.</div>
+      <span class="about-tag pt-l">Mindfulness</span>
+    </div>
+
+    <div class="about-card">
+      <div class="about-emoji">🍳</div>
+      <div class="about-label" data-l="it">Cucina</div>
+      <div class="about-label" data-l="en">Cooking</div>
+      <div class="about-desc" data-l="it">Cucinare è un atto creativo come un altro — si parte da ingredienti, si segue (o si ignora) una ricetta, si impatta qualcuno con il risultato. Non troppo diverso dal marketing.</div>
+      <div class="about-desc" data-l="en">Cooking is a creative act like any other — start with ingredients, follow (or ignore) a recipe, impact someone with the result. Not too different from marketing.</div>
+      <span class="about-tag pt-y">Creative fuel</span>
+    </div>
+
+    <div class="about-card">
+      <div class="about-emoji">♊</div>
+      <div class="about-label" data-l="it">Spirito Gemelli</div>
+      <div class="about-label" data-l="en">Gemini Spirit</div>
+      <div class="about-desc" data-l="it">Collanine, portachiavi, ceramica, macramè — se esiste un hobby, probabilmente l'ho già provato. La manualità e la cura del dettaglio che metto nei progetti nascono anche da qui.</div>
+      <div class="about-desc" data-l="en">Jewelry, keychains, ceramics, macramé — if a hobby exists, I've probably tried it. The attention to detail I bring to projects comes from here too.</div>
+      <span class="about-tag pt-p">Handmade & creative</span>
+    </div>
+
+    <div class="about-card">
+      <div class="about-emoji">🌏</div>
+      <div class="about-label" data-l="it">Curiosità culturale</div>
+      <div class="about-label" data-l="en">Cultural curiosity</div>
+      <div class="about-desc" data-l="it">Riviste indipendenti, viaggi lenti, esperienze autentiche. Prossimo obiettivo: Giappone, Japan Rail Pass, onsen e cerimonia del tè — ovviamente con un piano dettagliato già in testa.</div>
+      <div class="about-desc" data-l="en">Independent magazines, slow travel, authentic experiences. Next goal: Japan, Rail Pass, onsen and tea ceremony — obviously with a detailed plan already in mind.</div>
+      <span class="about-tag pt-v">Always exploring</span>
+    </div>
+
+    <div class="about-cat-card">
+      <div class="about-cat-emoji">🐱</div>
+      <div class="about-cat-text">
+        <div class="about-cat-name">Liù</div>
+        <div class="about-cat-desc" data-l="it">La mia gatta. Un anno di vita, energia infinita, zero senso del confine. Presenza fissa in ogni call, revisione di ogni progetto e decisione aziendale importante.</div>
+        <div class="about-cat-desc" data-l="en">My cat. One year old, infinite energy, zero sense of boundaries. Fixed presence on every call, reviewer of every project and important business decision.</div>
+      </div>
+    </div>
+
   </div>
 </div>
 
