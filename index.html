@@ -45,16 +45,12 @@
   /* Mattone does not use variable settings */
 }
 html{scroll-behavior:smooth;}
-body{font-family:var(--muli);background:var(--cream);color:var(--body);-webkit-font-smoothing:antialiased;}
+body{font-family:var(--muli);background:#ffffff;color:var(--body);-webkit-font-smoothing:antialiased;}
 .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:2rem 1.25rem 5rem;}
 .cv{width:100%;max-width:800px;}
 
 
-/* HERO GRADIENT ANIMATION */
-.hero-canvas{position:absolute;inset:0;pointer-events:none;z-index:0;border-radius:22px;overflow:hidden;}
-.hero-canvas canvas{position:absolute;inset:0;width:100%;height:100%;opacity:1;}
-.hero > *:not(.hero-canvas){position:relative;z-index:1;}
-@media(max-width:768px){.hero-canvas{display:none;}}
+
 
 /* LANG */
 .lang-bar{display:flex;justify-content:flex-end;gap:6px;margin-bottom:1.25rem;}
@@ -63,7 +59,7 @@ body{font-family:var(--muli);background:var(--cream);color:var(--body);-webkit-f
 .lb.on{background:var(--pink);color:#fff;border-color:var(--pink);}
 
 /* HERO - light bg, ink text */
-.hero{background:var(--white);border:2px solid var(--pink-mid);border-radius:24px;padding:2.5rem;margin-bottom:1rem;position:relative;overflow:hidden;cursor:default;}
+.hero{background:#ffffff;border:2px solid var(--pink-mid);border-radius:24px;padding:2.5rem;margin-bottom:1rem;position:relative;overflow:hidden;cursor:default;}
 
 
 
@@ -243,7 +239,6 @@ body{font-family:var(--muli);background:var(--cream);color:var(--body);-webkit-f
 </div>
 
 <div class="hero" id="hero">
-  <div class="hero-canvas"><canvas id="hero-cvs"></canvas></div>
   
   
   
@@ -603,63 +598,101 @@ body{font-family:var(--muli);background:var(--cream);color:var(--body);-webkit-f
 </div></div>
 
 <script>
-
-);
-}
-
-
+// ── HERO LIQUID BLOB ────────────────────────────────────────────────────
 (function(){
-  var hero = document.getElementById('hero');
-  var cvs = document.getElementById('hero-cvs');
-  if(!cvs || window.innerWidth <= 768) return;
-  var ctx = cvs.getContext('2d');
-  var mx = 0.5, my = 0.5, tmx = 0.5, tmy = 0.5;
-  
-  function resize(){
-    cvs.width = hero.offsetWidth;
-    cvs.height = hero.offsetHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
+  var colors = [
+    [237, 51, 185],
+    [122, 194, 49],
+    [240, 216, 74],
+    [139, 126, 200]
+  ];
 
-  hero.addEventListener('mousemove', function(e){
-    var r = hero.getBoundingClientRect();
-    tmx = (e.clientX - r.left) / r.width;
-    tmy = (e.clientY - r.top) / r.height;
-  });
-  hero.addEventListener('mouseleave', function(){
-    tmx = 0.5; tmy = 0.5;
-  });
+  var blobs = [
+    {x:0.2, y:0.3, vx:0, vy:0, ci:0},
+    {x:0.7, y:0.6, vx:0, vy:0, ci:1},
+    {x:0.8, y:0.2, vx:0, vy:0, ci:2},
+    {x:0.3, y:0.7, vx:0, vy:0, ci:3}
+  ];
 
-  function lerp(a,b,t){ return a + (b-a)*t; }
+  var mouse = {x: 0.5, y: 0.5, inside: false};
 
-  function draw(){
-    mx = lerp(mx, tmx, 0.06);
-    my = lerp(my, tmy, 0.06);
-    var w = cvs.width, h = cvs.height;
-    ctx.clearRect(0,0,w,h);
+  window.addEventListener('DOMContentLoaded', function(){
+    var hero = document.getElementById('hero');
+    if (!hero) return;
 
-    function blob(cx,cy,r,color){
-      var grd = ctx.createRadialGradient(cx,cy,0,cx,cy,r);
-      grd.addColorStop(0, color);
-      grd.addColorStop(1, 'rgba(255,255,255,0)');
-      ctx.fillStyle = grd;
-      ctx.beginPath();
-      ctx.arc(cx,cy,r,0,Math.PI*2);
-      ctx.fill();
+    var cvs = document.createElement('canvas');
+    cvs.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;border-radius:22px;';
+    hero.insertBefore(cvs, hero.firstChild);
+
+    // push hero children above canvas
+    Array.from(hero.children).forEach(function(el){
+      if (el !== cvs) el.style.position = 'relative', el.style.zIndex = '1';
+    });
+
+    var ctx = cvs.getContext('2d');
+    var W, H;
+
+    function resize(){
+      W = cvs.width  = hero.offsetWidth;
+      H = cvs.height = hero.offsetHeight;
     }
+    resize();
+    new ResizeObserver(resize).observe(hero);
 
-    // blobs that follow mouse
-    blob(mx*w, my*h, w*0.55, 'rgba(237,51,185,0.18)');
-    blob((1-mx)*w, (1-my)*h, w*0.5, 'rgba(122,194,49,0.13)');
-    blob(mx*w*0.5, (1-my)*h, w*0.4, 'rgba(240,216,74,0.14)');
-    blob((1-mx)*w*1.1, my*h*1.2, w*0.45, 'rgba(139,126,200,0.12)');
+    hero.addEventListener('mousemove', function(e){
+      var r = hero.getBoundingClientRect();
+      mouse.x = (e.clientX - r.left) / r.width;
+      mouse.y = (e.clientY - r.top)  / r.height;
+      mouse.inside = true;
+    });
+    hero.addEventListener('mouseleave', function(){
+      mouse.inside = false;
+    });
 
-    requestAnimationFrame(draw);
-  }
-  draw();
+    function lerp(a, b, t){ return a + (b - a) * t; }
+
+    function draw(){
+      if (!W || !H){ requestAnimationFrame(draw); return; }
+      ctx.clearRect(0, 0, W, H);
+
+      blobs.forEach(function(b, i){
+        var tx, ty;
+        if (mouse.inside) {
+          // each blob attracted toward mouse with offset
+          var angle = (i / blobs.length) * Math.PI * 2;
+          var pull = 0.35;
+          tx = mouse.x + Math.cos(angle) * pull * (1 - 0.4 * i/blobs.length);
+          ty = mouse.y + Math.sin(angle) * pull * (1 - 0.4 * i/blobs.length);
+        } else {
+          // idle drift
+          var t = Date.now() * 0.0005;
+          tx = 0.5 + Math.cos(t * (0.7 + i * 0.3) + i) * 0.28;
+          ty = 0.5 + Math.sin(t * (0.5 + i * 0.4) + i * 1.5) * 0.22;
+        }
+        b.x = lerp(b.x, tx, 0.04);
+        b.y = lerp(b.y, ty, 0.04);
+
+        var cx = b.x * W;
+        var cy = b.y * H;
+        var r  = W * 0.55;
+        var c  = colors[b.ci];
+        var g  = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
+        g.addColorStop(0,   'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',0.28)');
+        g.addColorStop(0.5, 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',0.10)');
+        g.addColorStop(1,   'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',0)');
+        ctx.fillStyle = g;
+        ctx.beginPath();
+        ctx.arc(cx, cy, r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      requestAnimationFrame(draw);
+    }
+    draw();
+  });
 })();
 
+// ── TABS ─────────────────────────────────────────────────────────────────
 function showTab(id,el){
   document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('on');});
   document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('on');});
