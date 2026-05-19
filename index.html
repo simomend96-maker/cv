@@ -44,8 +44,8 @@
 .impact-val {
   /* Mattone does not use variable settings */
 }
-html{scroll-behavior:smooth;}
-body{font-family:var(--muli);background:var(--cream);color:var(--body);-webkit-font-smoothing:antialiased;}
+html{scroll-behavior:smooth;background:var(--cream);}
+body{font-family:var(--muli);background:transparent;color:var(--body);-webkit-font-smoothing:antialiased;}
 .page{min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:2rem 1.25rem 5rem;}
 .cv{width:100%;max-width:800px;}
 
@@ -57,9 +57,9 @@ body{font-family:var(--muli);background:var(--cream);color:var(--body);-webkit-f
 
 /* HERO - light bg, ink text */
 .hero{background:var(--white);border:2px solid var(--pink-mid);border-radius:24px;padding:2.5rem;margin-bottom:1rem;position:relative;overflow:hidden;}
-.hero-blob1{position:absolute;width:220px;height:220px;border-radius:50%;background:var(--pink-light);top:-80px;right:-60px;pointer-events:none;}
-.hero-blob2{position:absolute;width:100px;height:100px;border-radius:50%;background:var(--lime-light);bottom:-30px;right:120px;pointer-events:none;}
-.hero-blob3{position:absolute;width:60px;height:60px;border-radius:50%;background:var(--yellow-light);bottom:20px;left:-20px;pointer-events:none;}
+
+
+
 .hero-eyebrow{font-family:var(--tight);font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--pink);margin-bottom:1rem;position:relative;}
 .hero-name{text-transform:uppercase;font-family:var(--asap);font-size:clamp(32px,9vw,80px);font-weight:900;line-height:.88;color:var(--ink);letter-spacing:-.025em;text-transform:uppercase;position:relative;}
 .hero-name-accent{color:var(--pink);}
@@ -179,6 +179,19 @@ body{font-family:var(--muli);background:var(--cream);color:var(--body);-webkit-f
 .about-cat-desc{font-family:var(--muli);font-size:12.5px;color:#555;line-height:1.6;font-weight:500;margin-top:4px;}
 @media(max-width:520px){.about-grid{grid-template-columns:1fr;}.about-cat-card{grid-column:1;}}
 
+
+/* ANIMATED BACKGROUND - desktop only */
+
+.bg-blobs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.bg-blob{position:absolute;border-radius:50%;filter:blur(90px);transition:transform 0.15s ease-out;}
+.bg-blob1{width:500px;height:500px;background:#fde8f8;opacity:0.75;top:-150px;left:-100px;}
+.bg-blob2{width:420px;height:420px;background:#edf7d8;opacity:0.65;bottom:-120px;right:-80px;}
+.bg-blob3{width:350px;height:350px;background:#fef9d0;opacity:0.6;top:30%;right:5%;}
+.bg-blob4{width:300px;height:300px;background:#ece9f8;opacity:0.55;bottom:20%;left:10%;}
+.bg-blob5{width:250px;height:250px;background:#fde8f8;opacity:0.5;top:60%;right:30%;}
+.page{position:relative;z-index:1;}
+@media(max-width:768px){.bg-blobs{display:none;}}
+
 /* LIGHTBOX */
 .lb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:999;align-items:center;justify-content:center;padding:20px;}
 .lb-overlay.open{display:flex;}
@@ -212,6 +225,15 @@ body{font-family:var(--muli);background:var(--cream);color:var(--body);-webkit-f
 </head>
 <body>
 
+
+<div class="bg-blobs">
+  <div class="bg-blob bg-blob1" id="bgb1"></div>
+  <div class="bg-blob bg-blob2" id="bgb2"></div>
+  <div class="bg-blob bg-blob3" id="bgb3"></div>
+  <div class="bg-blob bg-blob4" id="bgb4"></div>
+  <div class="bg-blob bg-blob5" id="bgb5"></div>
+</div>
+
 <div class="lb-overlay" id="lbo" onclick="closeLB()">
   <span class="lb-close">&#10005;</span>
   <img id="lbimg" src="" alt="">
@@ -226,9 +248,9 @@ body{font-family:var(--muli);background:var(--cream);color:var(--body);-webkit-f
 </div>
 
 <div class="hero">
-  <div class="hero-blob1"></div>
-  <div class="hero-blob2"></div>
-  <div class="hero-blob3"></div>
+  
+  
+  
   <div class="hero-eyebrow">Marketing Specialist &middot; Customer Experience &middot; Brand</div>
   <div class="hero-name">Simona<br><span class="hero-name-accent">Menditto</span></div>
   <div class="hero-sub" data-l="it">Customer Marketing &middot; Funnel Design &middot; Brand Strategy &middot; Creative Direction</div>
@@ -585,6 +607,25 @@ body{font-family:var(--muli);background:var(--cream);color:var(--body);-webkit-f
 </div></div>
 
 <script>
+
+if(window.innerWidth > 768) {
+  var bgb1=document.getElementById('bgb1');
+  var bgb2=document.getElementById('bgb2');
+  var bgb3=document.getElementById('bgb3');
+  var bgb4=document.getElementById('bgb4');
+  var bgb5=document.getElementById('bgb5');
+  document.addEventListener('mousemove',function(e){
+    var mx=e.clientX/window.innerWidth;
+    var my=e.clientY/window.innerHeight;
+    var s=60;
+    bgb1.style.transform='translate('+(mx*s-s/2)+'px,'+(my*s-s/2)+'px)';
+    bgb2.style.transform='translate('+(-mx*s+s/3)+'px,'+(-my*s+s/3)+'px)';
+    bgb3.style.transform='translate('+(-mx*s/2)+'px,'+(my*s/2)+'px)';
+    bgb4.style.transform='translate('+(mx*s/3)+'px,'+(-my*s/2)+'px)';
+    bgb5.style.transform='translate('+(-mx*s/2.5)+'px,'+(my*s/3)+'px)';
+  });
+}
+
 function showTab(id,el){
   document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('on');});
   document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('on');});
