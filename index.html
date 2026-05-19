@@ -61,7 +61,7 @@ body{font-family:var(--muli);background:var(--cream);color:var(--body);-webkit-f
 .hero-blob2{position:absolute;width:100px;height:100px;border-radius:50%;background:var(--lime-light);bottom:-30px;right:120px;pointer-events:none;}
 .hero-blob3{position:absolute;width:60px;height:60px;border-radius:50%;background:var(--yellow-light);bottom:20px;left:-20px;pointer-events:none;}
 .hero-eyebrow{font-family:var(--tight);font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--pink);margin-bottom:1rem;position:relative;}
-.hero-name{text-transform:uppercase;font-family:var(--asap);font-size:clamp(48px,9vw,80px);font-weight:900;line-height:.88;color:var(--ink);letter-spacing:-.025em;text-transform:uppercase;position:relative;}
+.hero-name{text-transform:uppercase;font-family:var(--asap);font-size:clamp(32px,9vw,80px);font-weight:900;line-height:.88;color:var(--ink);letter-spacing:-.025em;text-transform:uppercase;position:relative;}
 .hero-name-accent{color:var(--pink);}
 .hero-sub{font-family:var(--tight);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#aaa;margin-top:1.25rem;position:relative;}
 .hero-bio{font-family:var(--muli);font-size:14px;font-weight:500;color:#444;margin-top:.5rem;max-width:460px;line-height:1.7;position:relative;}
@@ -187,8 +187,8 @@ body{font-family:var(--muli);background:var(--cream);color:var(--body);-webkit-f
 
 /* RESPONSIVE */
 @media(max-width:620px){
-  .page{padding:1rem .75rem 3rem;}
-  .hero{padding:1.75rem 1.25rem 1.5rem;border-radius:20px;}
+  .page{padding:1rem .75rem 3rem;}.hero-name{word-break:break-word;}
+  .hero{padding:1.75rem 1.25rem 1.5rem;border-radius:20px;overflow:hidden;}
   .tabs-bar{gap:2px;}
   .tab{font-size:8px;padding:8px 2px;letter-spacing:.02em;}
   .exp-row,.edu-row{grid-template-columns:52px 1fr;gap:0 .75rem;}
@@ -538,7 +538,7 @@ body{font-family:var(--muli);background:var(--cream);color:var(--body);-webkit-f
       <div class="about-emoji">🧘🏼‍♀️</div>
       <div class="about-label" data-l="it">Yoga</div>
       <div class="about-label" data-l="en">Yoga</div>
-      <div class="about-desc" data-l="it">Movimento, respiro e presenza: tutto quello che serve per tornare a concentrarsi dopo mille progetti aperti.</div>
+      <div class="about-desc" data-l="it">Una pratica quotidiana che bilancia l'energia geminiana. Movimento, respiro e presenza — tutto quello che serve per tornare a concentrarsi dopo mille progetti aperti.</div>
       <div class="about-desc" data-l="en">A daily practice that balances Gemini energy. Movement, breath, and presence — everything needed to refocus after a thousand open projects.</div>
       <span class="about-tag pt-l">Mindfulness</span>
     </div>
@@ -547,7 +547,7 @@ body{font-family:var(--muli);background:var(--cream);color:var(--body);-webkit-f
       <div class="about-emoji">🍳</div>
       <div class="about-label" data-l="it">Cucina</div>
       <div class="about-label" data-l="en">Cooking</div>
-      <div class="about-desc" data-l="it">Cucinare è un atto creativo: si parte da ingredienti, si segue (o si ignora) una ricetta, si propone a un pubblico. Non troppo diverso dal marketing.</div>
+      <div class="about-desc" data-l="it">Cucinare è un atto creativo come un altro — si parte da ingredienti, si segue (o si ignora) una ricetta, si impatta qualcuno con il risultato. Non troppo diverso dal marketing.</div>
       <div class="about-desc" data-l="en">Cooking is a creative act like any other — start with ingredients, follow (or ignore) a recipe, impact someone with the result. Not too different from marketing.</div>
       <span class="about-tag pt-y">Creative fuel</span>
     </div>
@@ -556,7 +556,7 @@ body{font-family:var(--muli);background:var(--cream);color:var(--body);-webkit-f
       <div class="about-emoji">♊</div>
       <div class="about-label" data-l="it">Spirito Gemelli</div>
       <div class="about-label" data-l="en">Gemini Spirit</div>
-      <div class="about-desc" data-l="it">Collanine, portachiavi, ceramica, se esiste un hobby, probabilmente l'ho già provato. La manualità e la cura del dettaglio che metto nei progetti nascono anche da qui.</div>
+      <div class="about-desc" data-l="it">Collanine, portachiavi, ceramica, macramè — se esiste un hobby, probabilmente l'ho già provato. La manualità e la cura del dettaglio che metto nei progetti nascono anche da qui.</div>
       <div class="about-desc" data-l="en">Jewelry, keychains, ceramics, macramé — if a hobby exists, I've probably tried it. The attention to detail I bring to projects comes from here too.</div>
       <span class="about-tag pt-p">Handmade & creative</span>
     </div>
@@ -565,7 +565,7 @@ body{font-family:var(--muli);background:var(--cream);color:var(--body);-webkit-f
       <div class="about-emoji">🌏</div>
       <div class="about-label" data-l="it">Curiosità culturale</div>
       <div class="about-label" data-l="en">Cultural curiosity</div>
-      <div class="about-desc" data-l="it">Riviste indipendenti, viaggi lenti, esperienze autentiche. Prossimo obiettivo: Giappone, Japan Rail Pass, onsen e cerimonia del tè.</div>
+      <div class="about-desc" data-l="it">Riviste indipendenti, viaggi lenti, esperienze autentiche. Prossimo obiettivo: Giappone, Japan Rail Pass, onsen e cerimonia del tè — ovviamente con un piano dettagliato già in testa.</div>
       <div class="about-desc" data-l="en">Independent magazines, slow travel, authentic experiences. Next goal: Japan, Rail Pass, onsen and tea ceremony — obviously with a detailed plan already in mind.</div>
       <span class="about-tag pt-v">Always exploring</span>
     </div>
@@ -574,7 +574,7 @@ body{font-family:var(--muli);background:var(--cream);color:var(--body);-webkit-f
       <div class="about-cat-emoji">🐱</div>
       <div class="about-cat-text">
         <div class="about-cat-name">Liù</div>
-        <div class="about-cat-desc" data-l="it">La mia gatta. Due anni di vita insieme, energia infinita e tante coccole. Presenza fissa in ogni call, revisione di ogni progetto e decisione aziendale importante.</div>
+        <div class="about-cat-desc" data-l="it">La mia gatta. Un anno di vita, energia infinita, zero senso del confine. Presenza fissa in ogni call, revisione di ogni progetto e decisione aziendale importante.</div>
         <div class="about-cat-desc" data-l="en">My cat. One year old, infinite energy, zero sense of boundaries. Fixed presence on every call, reviewer of every project and important business decision.</div>
       </div>
     </div>
