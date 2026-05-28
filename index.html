@@ -184,6 +184,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 .avail{display:inline-flex;align-items:center;gap:8px;background:var(--pink-pale);color:var(--pink);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:8px 16px;border-radius:20px;border:1px solid rgba(233,146,184,.25);}
 .dp{width:6px;height:6px;border-radius:50%;background:var(--pink);animation:dpulse 1.5s ease-in-out infinite;}
 @keyframes dpulse{0%,100%{opacity:1;}50%{opacity:.2;}}
+@keyframes sp-pop{
+  0%  {opacity:1;transform:translate(-50%,-50%) scale(1) rotate(0deg);}
+  100%{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(.15) rotate(var(--rot));}
+}
+.sp-trail{
+  position:fixed;pointer-events:none;z-index:9999;
+  user-select:none;line-height:1;
+  animation:sp-pop var(--dur,0.7s) ease-out forwards;
+}
 
 /* HAMBURGER */
 .ham{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:4px;}
@@ -756,6 +765,40 @@ document.addEventListener('click',e=>{
   if(w&&!w.contains(e.target)) document.getElementById('sp-panel').classList.remove('open');
 });
 
+
+/* ── Sparkle cursor trail ─────────────────────────────────── */
+(function(){
+  if(window.matchMedia('(pointer:coarse)').matches) return; // skip touch
+  const CHARS=['✦','✧','✶','⋆','·','✸'];
+  const COLORS=['#E992B8','#f4d0e2','#BB1E74','#e0a0c8','#ffffff'];
+  let last=0;
+  document.addEventListener('mousemove',function(e){
+    const now=Date.now();
+    if(now-last<25) return;
+    last=now;
+    if(Math.random()>.55) return;
+    const el=document.createElement('span');
+    el.className='sp-trail';
+    const size=7+Math.random()*11;
+    const dx=(Math.random()*40-20).toFixed(1);
+    const dy=(-15-Math.random()*35).toFixed(1);
+    const rot=(Math.random()*240-120).toFixed(0);
+    const dur=(.5+Math.random()*.45).toFixed(2);
+    el.textContent=CHARS[Math.floor(Math.random()*CHARS.length)];
+    el.style.cssText=[
+      'left:'+e.clientX+'px',
+      'top:'+e.clientY+'px',
+      'font-size:'+size+'px',
+      'color:'+COLORS[Math.floor(Math.random()*COLORS.length)],
+      '--dx:'+dx+'px',
+      '--dy:'+dy+'px',
+      '--rot:'+rot+'deg',
+      '--dur:'+dur+'s'
+    ].join(';');
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),(dur*1000)+50);
+  });
+})();
 </script>
 
 <!-- ══ SPOTIFY WIDGET ══ -->
