@@ -265,9 +265,9 @@ section{padding-block:96px}
 .contact .eyebrow::after{background:rgba(241,232,220,.2)}
 .c-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:48px;margin-top:56px;align-items:start}
 .c-copy{font-size:17px;color:rgba(241,232,220,.78);max-width:46ch;display:grid;gap:22px}
-.mail{display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:rgba(241,232,220,.06);border:1px solid rgba(241,232,220,.18);border-radius:18px;padding:12px 12px 12px 20px}
-.mail span{font:900 clamp(14px,1.7vw,19px)/1.25 var(--display);user-select:all;overflow-wrap:anywhere;flex:1;min-width:0}
-.mail button{font:700 12px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;border:0;background:var(--rose);color:var(--ink);border-radius:999px;padding:12px 16px;cursor:pointer}
+.mail{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center;justify-content:space-between;background:rgba(241,232,220,.06);border:1px solid rgba(241,232,220,.18);border-radius:18px;padding:12px 12px 12px 20px}
+.mail span{font:700 clamp(17px,2vw,21px)/1.3 var(--body);letter-spacing:.01em;user-select:all;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:0 1 auto}
+.mail button{flex:none;font:700 12px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;border:0;background:var(--rose);color:var(--ink);border-radius:999px;padding:12px 16px;cursor:pointer}
 .clinks{list-style:none;padding:0;margin:0;border-top:1px solid rgba(241,232,220,.2)}
 .clinks a,.clinks div{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 2px;border-bottom:1px solid rgba(241,232,220,.2);text-decoration:none;transition:padding .3s var(--out),color .2s}
 .clinks a:hover{padding-left:12px;color:var(--rose)}
@@ -408,7 +408,7 @@ dialog.drawer[open]{animation:slidein .55s var(--out)}
     <div class="hero-copy">
       <div class="eyebrow bare" data-t="hero-eyebrow">Customer Marketing · Funnel · Brand · Roma</div>
       <h1><span class="ln"><span>Simona</span></span><span class="ln"><span><em>Menditto.</em></span></span></h1>
-      <p class="hero-lead" data-t="hero-lead">Progetto <b>funnel, email e customer journey</b> che portano risultati misurabili. E ci tengo che siano anche belli da vedere.</p>
+      <p class="hero-lead" data-t="hero-lead">Disegno <b>funnel ed email</b> che fanno il loro lavoro, e mi piace che siano anche belli da guardare.</p>
       <div class="hero-cta">
         <a class="btn" href="#lavori"><span data-t="hero-cta1">Guarda i lavori</span> <span class="arr">→</span></a>
         <a class="btn ghost" href="#contatti" data-t="hero-cta2">Contattami</a>
@@ -431,9 +431,9 @@ dialog.drawer[open]{animation:slidein .55s var(--out)}
       <div class="eyebrow" data-t="about-eyebrow">Chi sono</div>
       <h2 style="margin-top:22px" data-t="about-title">Data<br>meets<br><em>aesthetic.</em></h2>
       <div class="bio" data-t="about-bio">
-        <p>Lavoro nel customer marketing: funnel, email automation, CRM e lead generation. Parto dai dati, perché mi dicono dove si perde l’utente e cosa vale la pena testare.</p>
-        <p>Allo stesso tempo ho una forte sensibilità estetica. In un’altra vita sarei stata una graphic designer, e quella parte di me non l’ho mai spenta: la porto nei progetti e nei brand che disegno nel tempo libero.</p>
-        <p>Il mio sogno? Lavorare a una di quelle campagne che fanno pensare: <strong>“Avrei voluto pensarci io.”</strong></p>
+        <p>Mi occupo di customer marketing, soprattutto di lead generation e funnel digitali. Lavoro molto con i dati: mi dicono dove le persone si perdono e cosa vale la pena cambiare.</p>
+        <p>Poi c’è il lato estetico. In un’altra vita sarei probabilmente stata una graphic designer, e infatti nel tempo libero disegno brand per esercitarmi.</p>
+        <p>Il mio sogno è lavorare a una di quelle campagne che, quando le vedi, pensi: <strong>“avrei voluto pensarci io”</strong>.</p>
       </div>
       <div class="skills">
         <h4 data-t="skills-title">Strumenti e competenze</h4>
@@ -451,7 +451,7 @@ dialog.drawer[open]{animation:slidein .55s var(--out)}
 
 
 <nav class="next" data-next aria-label="Pagina successiva"></nav>
-<footer class="pfoot"><div class="wrap"><span>Simona Menditto © 2026</span><span data-t="foot">Disegnato e scritto a Roma</span></div></footer>
+<footer class="pfoot"><div class="wrap"><span>Simona Menditto © 2026</span><span data-t="foot">Fatto a Roma</span></div></footer>
 </div>
 <div class="view" data-view="lavori" hidden>
 <!-- WORK -->
@@ -460,7 +460,7 @@ dialog.drawer[open]{animation:slidein .55s var(--out)}
     <div class="sec-head">
       <div class="eyebrow" data-t="work-eyebrow">Lavori selezionati</div>
       <h2 data-t="work-title">Progetti che<br>mi <em>raccontano.</em></h2>
-      <p class="sec-intro" data-t="work-intro">Quattro case study tra customer marketing, UX research e brand. Per ognuno: il contesto, cosa ho fatto io, cosa è successo dopo.</p>
+      <p class="sec-intro" data-t="work-intro">Quattro progetti tra customer marketing, UX research e brand. Per ognuno racconto da dove si partiva, di cosa mi sono occupata io e com’è andata.</p>
       <div class="filters" role="group" aria-label="Filtra i lavori" id="filters"></div>
     </div>
     <div class="cases" id="cases"></div>
@@ -484,7 +484,7 @@ dialog.drawer[open]{animation:slidein .55s var(--out)}
 
 
 <nav class="next" data-next aria-label="Pagina successiva"></nav>
-<footer class="pfoot"><div class="wrap"><span>Simona Menditto © 2026</span><span data-t="foot">Disegnato e scritto a Roma</span></div></footer>
+<footer class="pfoot"><div class="wrap"><span>Simona Menditto © 2026</span><span data-t="foot">Fatto a Roma</span></div></footer>
 </div>
 <div class="view" data-view="brand-lab" hidden>
 <section id="brand-lab-sec">
@@ -492,14 +492,14 @@ dialog.drawer[open]{animation:slidein .55s var(--out)}
     <div class="sec-head">
       <div class="eyebrow" data-t="lab-eyebrow">Side projects</div>
       <h2 data-t="lab-title">Brand<br><em>lab.</em></h2>
-      <p class="sec-intro" data-t="lab-intro">Brief fittizi che mi do per allenare l’occhio: identità complete, dal moodboard al mockup. Passa sopra una card per vedere un’altra tavola, clicca per aprire tutto il progetto.</p>
+      <p class="sec-intro" data-t="lab-intro">Nel tempo libero studio design. Mi invento un brief e costruisco l’identità completa, dal moodboard al mockup.</p>
     </div>
     <div class="bento" id="bento"></div>
   </div>
 </section>
 
 <nav class="next" data-next aria-label="Pagina successiva"></nav>
-<footer class="pfoot"><div class="wrap"><span>Simona Menditto © 2026</span><span data-t="foot">Disegnato e scritto a Roma</span></div></footer>
+<footer class="pfoot"><div class="wrap"><span>Simona Menditto © 2026</span><span data-t="foot">Fatto a Roma</span></div></footer>
 </div>
 <div class="view" data-view="esperienza" hidden>
 <!-- EXPERIENCE -->
@@ -518,7 +518,7 @@ dialog.drawer[open]{animation:slidein .55s var(--out)}
 
 
 <nav class="next" data-next aria-label="Pagina successiva"></nav>
-<footer class="pfoot"><div class="wrap"><span>Simona Menditto © 2026</span><span data-t="foot">Disegnato e scritto a Roma</span></div></footer>
+<footer class="pfoot"><div class="wrap"><span>Simona Menditto © 2026</span><span data-t="foot">Fatto a Roma</span></div></footer>
 </div>
 <div class="view" data-view="contatti" hidden>
 <!-- CONTACT -->
@@ -528,7 +528,7 @@ dialog.drawer[open]{animation:slidein .55s var(--out)}
     <h2 style="margin-top:24px" data-t="c-title">Let’s<br>work<br><em>together.</em></h2>
     <div class="c-grid">
       <div class="c-copy">
-        <p data-t="c-copy">Mi piace parlare di nuovi progetti, collaborazioni o semplicemente di marketing e brand design. Cerco contesti dove creatività e approccio data-driven contano allo stesso modo.</p>
+        <p data-t="c-copy">Scrivimi per un progetto, una collaborazione o anche solo per parlare di marketing e brand. Sto cercando un posto dove i dati e la creatività abbiano lo stesso peso.</p>
         <div class="mail"><span id="mail">simomend96@gmail.com</span><button type="button" id="copy" data-t="c-copybtn">Copia email</button></div>
       </div>
       <ul class="clinks">
@@ -537,7 +537,7 @@ dialog.drawer[open]{animation:slidein .55s var(--out)}
         <li><div><b data-t="c-loc">Base</b><span>Roma, Italia</span></div></li>
       </ul>
     </div>
-    <div class="foot"><span>Simona Menditto © 2026</span><span data-t="foot">Disegnato e scritto a Roma</span></div>
+    <div class="foot"><span>Simona Menditto © 2026</span><span data-t="foot">Fatto a Roma</span></div>
   </div>
 </section>
 
@@ -584,53 +584,53 @@ const CASES=[
   {id:'dp-payments',f:['mkt'],org:'MioDottore · Docplanner',kind:{it:'Lavoro',en:'Work'},
    title:'DP Payments',sub:{it:'Email flow per attivazione e KYC',en:'Activation & KYC email flow'},
    ctx:{it:'Payments è un servizio che il medico deve attivare in autonomia, e l’attivazione passa da una verifica KYC.',en:'Doctors switch Payments on themselves, and activation runs through a KYC identity check.'},
-   role:{it:'Ho progettato un funnel email in 3 fasi che accompagna l’utente dall’attivazione al KYC completato. Flusso disegnato su Miro, implementato e automatizzato in HubSpot.',en:'I designed a 3-step email funnel that walks users from activation to a completed KYC. Mapped in Miro, built and automated in HubSpot.'},
-   res:{it:'50% di completamento KYC tra gli utenti entrati nel flusso.',en:'50% KYC completion among users who entered the flow.'},
+   role:{it:'Ho progettato un flusso di 3 email che accompagna il medico dall’attivazione fino alla verifica KYC. L’ho disegnato su Miro e poi costruito in HubSpot.',en:'I designed a 3-email flow that takes doctors from activation through to the KYC check. I mapped it in Miro and built it in HubSpot.'},
+   res:{it:'Metà di chi è entrato nel flusso ha completato il KYC.',en:'Half of the people who entered the flow completed KYC.'},
    metrics:[['30%',{it:'Open rate',en:'Open rate'}],['8%',{it:'CTR',en:'CTR'}],['50%',{it:'KYC completati',en:'KYC completion'}]],
    tags:['HubSpot','Miro','Email automation','Funnel design'],visual:'dp',gal:['dp-flow']},
   {id:'nino',f:['ux'],org:'Google.org Impact Challenge · Seedble',kind:{it:'Lavoro',en:'Work'},
    title:'NINO',sub:{it:'App di alfabetizzazione digitale',en:'Digital literacy app'},
    ctx:{it:'Un’app per insegnare il digitale agli adulti over 50, finanziata dalla Google.org Impact Challenge: Tech for Social Good.',en:'An app teaching digital skills to adults over 50, funded by the Google.org Impact Challenge: Tech for Social Good.'},
-   role:{it:'User research end-to-end: interviste agli utenti target, user personas, mappatura della user journey. Ho lavorato con la UI designer per trasformare gli insight in scelte di design.',en:'End-to-end user research: target user interviews, personas and user journey mapping. I worked with the UI designer to turn insights into design decisions.'},
-   res:{it:'App pubblicata, sviluppata con 4 partner.',en:'App launched, built with 4 partners.'},
+   role:{it:'Ho seguito tutta la user research: interviste al target, user personas e user journey. Poi ho lavorato con la UI designer per tradurre quello che avevamo scoperto in scelte di design.',en:'I ran the user research from start to finish: interviews, personas and the user journey. Then I worked with the UI designer to turn what we learned into design decisions.'},
+   res:{it:'L’app è online, realizzata insieme a 4 partner.',en:'The app is live, built together with 4 partners.'},
    metrics:[['4',{it:'Partner',en:'Partners'}],['50+',{it:'Età del target',en:'Target age'}]],
    tags:['User interviews','Personas','User journey'],visual:'nino',gal:['nino']},
   {id:'rizoma',f:['ux'],org:'Seedble × Rizoma',kind:{it:'Lavoro',en:'Work'},
    title:'Rizoma',sub:{it:'UX research per un e-commerce',en:'UX research for an e-commerce'},
-   ctx:{it:'Il lancio dell’e-commerce di Rizoma, con prodotti configurabili su misura.',en:'The launch of Rizoma’s online shop, with made-to-order configurable products.'},
-   role:{it:'User research end-to-end: interviste, personas, customer journey. Ho seguito la progettazione della pagina prodotto con un wireframe del flusso multi-step di configurazione.',en:'End-to-end user research: interviews, personas, customer journey. I worked on the product page with a wireframe of the multi-step configuration flow.'},
-   res:{it:'Personas, customer journey e wireframe della pagina prodotto.',en:'Personas, customer journey and product page wireframes.'},
+   ctx:{it:'Rizoma stava lanciando il suo e-commerce, con prodotti da configurare su misura.',en:'Rizoma was launching its online shop, with products customers configure to order.'},
+   role:{it:'Ho seguito la user research (interviste, personas, customer journey) e la progettazione della pagina prodotto, con il wireframe del flusso in più step per configurare il prodotto.',en:'I ran the user research (interviews, personas, customer journey) and worked on the product page, wireframing the multi-step flow for configuring a product.'},
+   res:{it:'Ho consegnato personas, customer journey e wireframe della pagina prodotto.',en:'I delivered the personas, the customer journey and the product page wireframes.'},
    metrics:[],tags:['UX research','Customer journey','Wireframe'],visual:'rz',gal:[]},
   {id:'edicola',f:['brand','mkt'],org:{it:'Side project · Roma',en:'Side project · Rome'},kind:{it:'Co-fondatrice',en:'Co-founder'},
    title:'Edicola RiVista',sub:{it:'Brand, social e PR editoriale',en:'Brand, social & editorial PR'},
-   ctx:{it:'Un chiosco di 10 m² in Piazzale degli Eroi trasformato in spazio culturale: riviste indipendenti, eventi, book crossing.',en:'A 10 m² kiosk in Piazzale degli Eroi turned into a cultural space: independent magazines, events, book crossing.'},
-   role:{it:'Co-fondatrice e brand curator. Ho costruito l’identità, il piano marketing, la social strategy e la presentazione per partner, eventi e collaborazioni.',en:'Co-founder and brand curator. I built the identity, marketing plan, social strategy and the deck for partners, events and collaborations.'},
-   res:{it:'Un’identità riconoscibile e un’offerta strutturata per eventi e collaborazioni con artisti.',en:'A recognisable identity and a structured offer for events and artist collaborations.'},
+   ctx:{it:'Un chiosco di 10 m² in Piazzale degli Eroi che abbiamo trasformato in uno spazio culturale, con riviste indipendenti, eventi e book crossing.',en:'A 10 m² kiosk in Piazzale degli Eroi that we turned into a cultural space, with independent magazines, events and book crossing.'},
+   role:{it:'Sono co-fondatrice e mi occupo del brand: identità visiva, piano marketing, social e la presentazione per partner ed eventi.',en:'I’m a co-founder and I look after the brand: visual identity, marketing plan, social media and the deck for partners and events.'},
+   res:{it:'Un’identità coerente tra social e materiali, e un’offerta chiara per chi vuole organizzare eventi o collaborare con noi.',en:'A consistent identity across social media and print, and a clear offer for anyone who wants to host an event or work with us.'},
    metrics:[['10 m²',{it:'Di spazio',en:'Of space'}]],
    tags:['Brand identity','Social strategy','PR editoriale','Event marketing'],visual:'ed',link:'https://www.instagram.com/edicolarivista/',
    gal:Array.from({length:11},(_,i)=>'ed-'+(i+1))}
 ];
 const BRANDS=[
   {id:'margherita-selvatica',title:'Margherita Selvatica',type:{it:'Casa editrice',en:'Publisher'},n:5,k:'ms',wide:true,
-   d:{it:'Casa editrice indipendente. Logo disegnato a mano, font script, palette naturale. Copertine e mockup.',en:'Independent publisher. Hand-drawn logo, script type, natural palette. Book covers and mockups.'},tags:['Logo','Book cover','Palette']},
+   d:{it:'Casa editrice indipendente. Logo disegnato a mano, font script e palette naturale, con copertine e mockup.',en:'Independent publisher. Hand-drawn logo, script type, natural palette. Book covers and mockups.'},tags:['Logo','Book cover','Palette']},
   {id:'tavola-libera',title:'Tavola Libera',type:{it:'Ristorante',en:'Restaurant'},n:3,k:'tl',wide:true,
-   d:{it:'Ristorante al Pigneto, cucina italiana contemporanea. Wordmark con ovale a mano libera, palette calda senza rosso e verde. Menù del giorno circolare per la stampa settimanale.',en:'Restaurant in Pigneto, contemporary Italian food. Freehand oval wordmark, warm palette with no red or green. A round daily menu for weekly printing.'},tags:['Wordmark','Menu design']},
+   d:{it:'Ristorante di cucina italiana contemporanea al Pigneto. Wordmark con un ovale a mano libera e palette calda senza rosso e verde. Il pezzo forte è il menù del giorno rotondo, pensato per essere ristampato ogni settimana.',en:'Restaurant in Pigneto, contemporary Italian food. Freehand oval wordmark, warm palette with no red or green. A round daily menu for weekly printing.'},tags:['Wordmark','Menu design']},
   {id:'officina-rumore',title:'Officina Rumore',type:{it:'Musica',en:'Music'},n:4,k:'or',
-   d:{it:'Brand musicale nostalgico anni 2000. Logo ispirato alla WordArt, palette pastello complementare.',en:'A 2000s-nostalgia music brand. WordArt-inspired logo, complementary pastel palette.'},tags:['Logo','Merch mockup']},
+   d:{it:'Brand musicale nostalgico degli anni 2000, con un logo ispirato alla WordArt e una palette pastello.',en:'A 2000s-nostalgia music brand. WordArt-inspired logo, complementary pastel palette.'},tags:['Logo','Merch mockup']},
   {id:'zeno-botanicals',title:'Zeno Botanicals',type:{it:'Piante',en:'Plants'},n:4,k:'zb',
-   d:{it:'Piante da interni a Roma. Palette presa dalla Monstera e dal tramonto.',en:'Indoor plants in Rome. A palette drawn from Monstera leaves and sunsets.'},tags:['Logo','Packaging']},
+   d:{it:'Piante da interni a Roma. La palette viene dalla Monstera e dai colori del tramonto.',en:'Indoor plants in Rome. A palette drawn from Monstera leaves and sunsets.'},tags:['Logo','Packaging']},
   {id:'studio-volta',title:'Studio Volta',type:{it:'Architettura',en:'Architecture'},n:3,k:'sv',
-   d:{it:'Studio di architettura under 35. Segno geometrico ispirato alla sezione aurea. Feed Instagram da 9 post come sistema visivo.',en:'Architecture studio run by under-35s. A geometric mark based on the golden ratio. A 9-post Instagram grid built as one system.'},tags:['Logo','Instagram feed']}
+   d:{it:'Studio di architettura under 35. Il segno del logo nasce dalla sezione aurea, e il feed Instagram da 9 post è pensato come un unico sistema visivo.',en:'Architecture studio run by under-35s. A geometric mark based on the golden ratio. A 9-post Instagram grid built as one system.'},tags:['Logo','Instagram feed']}
 ];
 const INTS=[
-  {k:'yoga',it:['Yoga','Movimento, respiro e presenza: quello che mi serve per ritrovare la concentrazione dopo mille progetti aperti.'],en:['Yoga','Movement, breath and presence: what I need to refocus after a dozen open projects.']},
-  {k:'cucina',it:['Cucina','Si parte dagli ingredienti, si segue (o si ignora) una ricetta, si propone a un pubblico. Non così diverso dal marketing.'],en:['Cooking','Start from ingredients, follow (or ignore) a recipe, serve it to an audience. Not that far from marketing.']},
-  {k:'gemelli',it:['Gemelli','Ho una gemella e sono dei Gemelli. Mille anime e mille hobby: collanine, portachiavi, ceramica. La cura del dettaglio nasce da qui.'],en:['Gemini','I have a twin sister and I’m a Gemini. Many sides, many hobbies: necklaces, keychains, ceramics. My eye for detail starts here.']},
-  {k:'liu',it:['Liù','La mia gatta. Energia infinita, zero senso del confine. Revisora ufficiale di ogni progetto importante.'],en:['Liù','My cat. Endless energy, no sense of boundaries. Official reviewer of every big project.']}
+  {k:'yoga',it:['Yoga','Movimento e respiro: è quello che mi serve per tornare concentrata dopo mille progetti aperti.'],en:['Yoga','Movement and breathing: what I need to refocus after a dozen open projects.']},
+  {k:'cucina',it:['Cucina','Parti dagli ingredienti, segui (o ignori) una ricetta e alla fine servi tutto a qualcuno. Non è poi così diverso dal marketing.'],en:['Cooking','You start from ingredients, follow (or ignore) a recipe and in the end serve it to someone. Not that different from marketing.']},
+  {k:'gemelli',it:['Gemelli','Ho una gemella e sono pure del segno dei Gemelli, quindi mille anime e mille hobby: collanine, portachiavi, ceramica. La cura per i dettagli viene anche da lì.'],en:['Gemini','I have a twin sister and I’m a Gemini too, so lots of sides and lots of hobbies: necklaces, keychains, ceramics. My care for detail comes partly from there.']},
+  {k:'liu',it:['Liù','La mia gatta. Energia infinita e zero senso del confine. Revisiona ufficialmente ogni progetto importante.'],en:['Liù','My cat. Endless energy and no sense of boundaries. She officially reviews every big project.']}
 ];
 const WORK=[
-  {d:'2024 →',now:1,r:'Customer Marketing Specialist',o:'Docplanner Italy · MioDottore',p:{it:'Customer marketing per conversione, retention e upselling. Workflow HubSpot, segmentazione liste, monitoraggio performance. Flussi email per onboarding, retention, cross-sell e KYC. Analisi dell’integrazione HubSpot–Salesforce.',en:'Customer marketing for conversion, retention and upselling. HubSpot workflows, list segmentation, performance tracking. Email flows for onboarding, retention, cross-sell and KYC. HubSpot–Salesforce integration analysis.'}},
-  {d:'2021 – 2024',r:'Marketing Specialist & Project Manager',o:'Seedble · Consulenza manageriale',p:{it:'Progetti cliente e coordinamento di team cross-funzionali. UX e CX strategy: research, interviste, personas, customer journey e wireframe. Campagne DEM, automazioni, landing page e lead magnet. Formazione aziendale su wireframe e digital strategy.',en:'Client projects and cross-functional team coordination. UX and CX strategy: research, interviews, personas, customer journeys and wireframes. Email campaigns, automations, landing pages and lead magnets. Corporate training on wireframing and digital strategy.'}},
+  {d:'2024 →',now:1,r:'Customer Marketing Specialist',o:'Docplanner Italy · MioDottore',p:{it:'Mi occupo di customer marketing per conversione, retention e upselling. Gestisco i workflow in HubSpot, segmento le liste e seguo le performance. Progetto i flussi email per onboarding, cross-sell e KYC, e ho lavorato all’analisi dell’integrazione tra HubSpot e Salesforce.',en:'I work on customer marketing for conversion, retention and upselling. I run the HubSpot workflows, segment lists and track performance. I design email flows for onboarding, cross-sell and KYC, and I worked on the analysis for connecting HubSpot and Salesforce.'}},
+  {d:'2021 – 2024',r:'Marketing Specialist & Project Manager',o:'Seedble · Consulenza manageriale',p:{it:'Gestivo i progetti per i clienti e coordinavo team misti. Sul lato UX facevo research, interviste, personas, customer journey e wireframe. Seguivo anche DEM, automazioni, landing page e lead magnet, e tenevo formazioni aziendali su wireframe e digital strategy.',en:'I managed client projects and coordinated mixed teams. On the UX side I did research, interviews, personas, customer journeys and wireframes. I also ran email campaigns, automations, landing pages and lead magnets, and taught company workshops on wireframing and digital strategy.'}},
   {d:'2022',r:'Contributor & Social Media Manager',o:'Spremute Digitali Magazine',p:{it:'Piano editoriale social con grafiche e copy. Articoli su marketing, branding e innovazione digitale.',en:'Social editorial plan with graphics and copy. Articles on marketing, branding and digital innovation.'}}
 ];
 const EDU=[
@@ -643,28 +643,28 @@ const MQ={it:['Customer marketing','HubSpot & CRM','Funnel design','UX research'
 
 const UI={
  it:{'nav-home':'Home','nav-lab':'Brand lab','teaser-eyebrow':'Brand lab','teaser-t':'Altre 5 identità di brand, dal moodboard al mockup','lab-eyebrow':'Side projects',nextLbl:'Pagina successiva','nav-work':'Lavori','nav-about':'Chi sono','nav-xp':'Esperienza','nav-contact':'Contatti','nav-cta':'Scrivimi',
-  'hero-eyebrow':'Customer Marketing · Funnel · Brand · Roma','hero-lead':'Progetto <b>funnel, email e customer journey</b> che portano risultati misurabili. E ci tengo che siano anche belli da vedere.',
+  'hero-eyebrow':'Customer Marketing · Funnel · Brand · Roma','hero-lead':'Disegno <b>funnel ed email</b> che fanno il loro lavoro, e mi piace che siano anche belli da guardare.',
   'hero-cta1':'Guarda i lavori','hero-cta2':'Contattami','fact-now':'Oggi: <b>Customer Marketing Specialist</b> @ MioDottore','fact-open':'Aperta a nuove opportunità',
-  'work-eyebrow':'Lavori selezionati','work-title':'Progetti che<br>mi <em>raccontano.</em>','work-intro':'Quattro case study tra customer marketing, UX research e brand. Per ognuno: il contesto, cosa ho fatto io, cosa è successo dopo.',
-  'lab-title':'Brand<br><em>lab.</em>','lab-intro':'Brief fittizi che mi do per allenare l’occhio: identità complete, dal moodboard al mockup. Passa sopra una card per vedere un’altra tavola, clicca per aprire tutto il progetto.',
+  'work-eyebrow':'Lavori selezionati','work-title':'Progetti che<br>mi <em>raccontano.</em>','work-intro':'Quattro progetti tra customer marketing, UX research e brand. Per ognuno racconto da dove si partiva, di cosa mi sono occupata io e com’è andata.',
+  'lab-title':'Brand<br><em>lab.</em>','lab-intro':'Nel tempo libero studio design. Mi invento un brief e costruisco l’identità completa, dal moodboard al mockup.',
   'wr-eyebrow':'Scrittura','wr-title':'Articoli su brand e rebranding','wr-intro':'Pubblicati su Spremute Digitali Magazine.','a1':'Tipologie di rebranding','a2':'I migliori e i peggiori rebranding','a3':'Diversity &amp; inclusion in azienda','a4':'Come scegliere il nome di un brand',
   'about-eyebrow':'Chi sono','about-title':'Data<br>meets<br><em>aesthetic.</em>',
-  'about-bio':'<p>Lavoro nel customer marketing: funnel, email automation, CRM e lead generation. Parto dai dati, perché mi dicono dove si perde l’utente e cosa vale la pena testare.</p><p>Allo stesso tempo ho una forte sensibilità estetica. In un’altra vita sarei stata una graphic designer, e quella parte di me non l’ho mai spenta: la porto nei progetti e nei brand che disegno nel tempo libero.</p><p>Il mio sogno? Lavorare a una di quelle campagne che fanno pensare: <strong>“Avrei voluto pensarci io.”</strong></p>',
+  'about-bio':'<p>Mi occupo di customer marketing, soprattutto di lead generation e funnel digitali. Lavoro molto con i dati: mi dicono dove le persone si perdono e cosa vale la pena cambiare.</p><p>Poi c’è il lato estetico. In un’altra vita sarei probabilmente stata una graphic designer, e infatti nel tempo libero disegno brand per esercitarmi.</p><p>Il mio sogno è lavorare a una di quelle campagne che, quando le vedi, pensi: <strong>“avrei voluto pensarci io”</strong>.</p>',
   'skills-title':'Strumenti e competenze','int-eyebrow':'Fuori dall’ufficio','xp-eyebrow':'Percorso','xp-title':'Experience<br>&amp; <em>education.</em>','xp-work':'Lavoro','xp-edu':'Formazione',
-  'c-eyebrow':'Contatti','c-title':'Let’s<br>work<br><em>together.</em>','c-copy':'Mi piace parlare di nuovi progetti, collaborazioni o semplicemente di marketing e brand design. Cerco contesti dove creatività e approccio data-driven contano allo stesso modo.',
-  'c-copybtn':'Copia email','c-copied':'Copiata','c-loc':'Base','foot':'Disegnato e scritto a Roma','music-title':'Tre canzoni per conoscermi','track1':'Brano 1','track2':'Brano 2','track3':'Brano 3',
+  'c-eyebrow':'Contatti','c-title':'Let’s<br>work<br><em>together.</em>','c-copy':'Scrivimi per un progetto, una collaborazione o anche solo per parlare di marketing e brand. Sto cercando un posto dove i dati e la creatività abbiano lo stesso peso.',
+  'c-copybtn':'Copia email','c-copied':'Copiata','c-loc':'Base','foot':'Fatto a Roma','music-title':'Tre canzoni per conoscermi','track1':'Brano 1','track2':'Brano 2','track3':'Brano 3',
   open:'Apri il progetto',context:'Contesto',role:'Il mio ruolo',result:'Risultato',close:'Chiudi',tools:'Strumenti',visit:'Vedi su Instagram ↗',slides:'tavole',boards:'Tavole',noimg:'Le tavole di questo progetto arriveranno presto.',now:'ORA',read:'Leggi ↗'},
  en:{'nav-home':'Home','nav-lab':'Brand lab','teaser-eyebrow':'Brand lab','teaser-t':'5 more brand identities, from moodboard to mockup','lab-eyebrow':'Side projects',nextLbl:'Next page','nav-work':'Work','nav-about':'About','nav-xp':'Experience','nav-contact':'Contact','nav-cta':'Get in touch',
-  'hero-eyebrow':'Customer Marketing · Funnels · Brand · Rome','hero-lead':'I design <b>funnels, emails and customer journeys</b> that deliver measurable results. And I care that they look good too.',
+  'hero-eyebrow':'Customer Marketing · Funnels · Brand · Rome','hero-lead':'I design <b>funnels and emails</b> that do their job, and I like them to look good too.',
   'hero-cta1':'See my work','hero-cta2':'Contact me','fact-now':'Now: <b>Customer Marketing Specialist</b> @ MioDottore','fact-open':'Open to new opportunities',
-  'work-eyebrow':'Selected work','work-title':'Work that<br>tells my <em>story.</em>','work-intro':'Four case studies across customer marketing, UX research and brand. For each: the context, what I did, and what happened next.',
-  'lab-title':'Brand<br><em>lab.</em>','lab-intro':'Fictional briefs I set myself to train my eye: full identities, from moodboard to mockup. Hover a card for another board, click to open the whole project.',
+  'work-eyebrow':'Selected work','work-title':'Work that<br>tells my <em>story.</em>','work-intro':'Four projects across customer marketing, UX research and brand. For each one I explain where we started, what I worked on and how it went.',
+  'lab-title':'Brand<br><em>lab.</em>','lab-intro':'In my spare time I study design. I make up a brief and build the whole identity, from moodboard to mockup.',
   'wr-eyebrow':'Writing','wr-title':'Articles on brands and rebranding','wr-intro':'Published in Spremute Digitali Magazine (Italian).','a1':'Types of rebranding','a2':'The best and worst rebrands','a3':'Diversity &amp; inclusion at work','a4':'How to name a brand',
   'about-eyebrow':'About','about-title':'Data<br>meets<br><em>aesthetic.</em>',
-  'about-bio':'<p>I work in customer marketing: funnels, email automation, CRM and lead generation. I start from data, because it shows me where users drop off and what is worth testing.</p><p>I also have a strong eye for aesthetics. In another life I’d have been a graphic designer, and I never switched that side off: it shows in my projects and in the brands I design in my spare time.</p><p>My dream? Working on one of those campaigns that make people think: <strong>“I wish I’d thought of that.”</strong></p>',
+  'about-bio':'<p>I work in customer marketing, mostly on lead generation and digital funnels. I spend a lot of time with data: it tells me where people drop off and what is worth changing.</p><p>Then there’s the visual side. In another life I’d probably have been a graphic designer, which is why I design brands in my spare time for practice.</p><p>My dream is to work on one of those campaigns that make you think <strong>“I wish I’d thought of that”</strong>.</p>',
   'skills-title':'Tools and skills','int-eyebrow':'Outside the office','xp-eyebrow':'Background','xp-title':'Experience<br>&amp; <em>education.</em>','xp-work':'Work','xp-edu':'Education',
-  'c-eyebrow':'Contact','c-title':'Let’s<br>work<br><em>together.</em>','c-copy':'I enjoy talking about new projects, collaborations, or just marketing and brand design. I’m looking for places where creativity and data count equally.',
-  'c-copybtn':'Copy email','c-copied':'Copied','c-loc':'Based in','foot':'Designed and written in Rome','music-title':'Three songs to get to know me','track1':'Track 1','track2':'Track 2','track3':'Track 3',
+  'c-eyebrow':'Contact','c-title':'Let’s<br>work<br><em>together.</em>','c-copy':'Write to me about a project, a collaboration, or just to talk marketing and brands. I’m looking for a place where data and creativity carry the same weight.',
+  'c-copybtn':'Copy email','c-copied':'Copied','c-loc':'Based in','foot':'Made in Rome','music-title':'Three songs to get to know me','track1':'Track 1','track2':'Track 2','track3':'Track 3',
   open:'Open project',context:'Context',role:'My role',result:'Result',close:'Close',tools:'Tools',visit:'See on Instagram ↗',slides:'boards',boards:'Boards',noimg:'Boards for this project are coming soon.',now:'NOW',read:'Read ↗'}
 };
 const u=(k)=>UI[lang][k];
